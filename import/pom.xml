@@ -26,7 +26,7 @@
 						</goals>
 						<configuration>
 							<excludeTransitive>true</excludeTransitive>
-							<excludeArtifactIds>junit</excludeArtifactIds>
+							<includeArtifactIds>junit-contrib-rules,junit-contrib-guice,junit-contrib-easymock,junit-contrib-emf</includeArtifactIds>
 							<outputDirectory>target/lib.imported</outputDirectory>
 							<overWriteReleases>true</overWriteReleases>
 							<overWriteSnapshots>true</overWriteSnapshots>
