@@ -9,6 +9,6 @@
 	<groupId>org.junit.contrib.eclipse</groupId>
 	<artifactId>junit-contrib-eclipse-feature</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>JUnit Extension for Eclipse Feature</name>
+	<name>JUnit Extension for Eclipse - Feature</name>
 	<packaging>eclipse-feature</packaging>
 </project>

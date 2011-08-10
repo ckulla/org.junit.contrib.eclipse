@@ -27,6 +27,7 @@
 	<modules>
 		<module>import</module>
 		<module>feature</module>
+		<module>repository</module>
 		<module>swtbot</module>
 		<module>swtbot.test</module>
 		<module>ui</module>

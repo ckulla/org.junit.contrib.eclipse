@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="feature"
-      label="JUnit Contribution Eclipse Feature"
+      id="org.junit.contrib.eclipse.feature"
+      label="JUnit Exrensions for Eclipse"
       version="0.0.1.qualifier">
 
    <description url="http://www.example.com/description">

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description url="http://github.com/ckulla/org.junit.contrib.eclipse">
+	JUnit Contrib Eclipse
+   </description>
+   <feature url="features/org.junit.contrib.eclipse.feature_0.0.0.qualifier.jar" id="org.junit.contrib.eclipse.feature" version="0.0.0" patch="false">
+      <category name="Minerva Plug-in"/>
+   </feature>
+   <!--feature url="features/org.aniszczyk.minerva.sources_0.0.0.qualifier.jar" id="org.aniszczyk.minerva.source" version="0.0.0" patch="false">
+      <category name="Minerva Plug-in"/>
+   </feature-->
+   <category-def name="Junit Contributions for Eclipse" label="JUnit Contributions for Eclipse">
+      <description>
+         Eclipse related contributions to JUnit.
+      </description>
+   </category-def>
+</site>
