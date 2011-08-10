@@ -5,4 +5,5 @@ Bundle-SymbolicName: org.junit.contrib.eclipse.ui.test
 Bundle-Version: 0.0.1.qualifier
 Fragment-Host: org.junit.contrib.eclipse.ui;bundle-version="0.0.1"
 Require-Bundle: org.junit.contrib.eclipse.import;bundle-version="0.0.1"
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
 

@@ -7,7 +7,7 @@
 	</prerequisites>
 
 	<groupId>org.junit.contrib.eclipse</groupId>
-	<artifactId>parent-eclipse</artifactId>
+	<artifactId>org.junit.contrib.parent.eclipse</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>JUnit Extensions for Eclipse</name>
@@ -27,6 +27,7 @@
 	<modules>
 		<module>import</module>
 		<module>feature</module>
+		<module>feature-source</module>
 		<module>repository</module>
 		<module>swtbot</module>
 		<module>swtbot.test</module>

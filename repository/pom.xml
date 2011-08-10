@@ -14,16 +14,14 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-          <artifactId>parent-eclipse</artifactId>
+          <artifactId>org.junit.contrib.parent.eclipse</artifactId>
           <groupId>org.junit.contrib.eclipse</groupId>
           <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>junit-contrib-eclipse-repository</artifactId>
+  <artifactId>org.junit.contrib.eclipse.repository</artifactId>
   <packaging>eclipse-repository</packaging>
-
   <name>JUnit Extension for Eclipse - Repository</name>
-  <version>0.0.1-SNAPSHOT</version>
 
   <build>
     <plugins>

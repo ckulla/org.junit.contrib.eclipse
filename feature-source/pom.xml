@@ -6,7 +6,7 @@
 		<groupId>org.junit.contrib.eclipse</groupId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>org.junit.contrib.eclipse.ui</artifactId>
-	<name>JUnit Extension for Eclipse - User Interface</name>
-	<packaging>eclipse-plugin</packaging>
+	<artifactId>org.junit.contrib.eclipse.feature.source</artifactId>
+	<name>JUnit Extension for Eclipse - Source Feature</name>
+	<packaging>eclipse-feature</packaging>
 </project>
