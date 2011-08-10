@@ -3,10 +3,10 @@ Bundle-ManifestVersion: 2
 Bundle-Name: JUnit Contrib for Eclipse - Imported Jars
 Bundle-SymbolicName: org.junit.contrib.eclipse.import
 Bundle-Version: 0.0.1.qualifier
-Bundle-ClassPath: target/lib.imported/junit-contrib-rules-0.0.1-SNAPSHOT.jar,
- target/lib.imported/junit-contrib-easymock-0.0.1-SNAPSHOT.jar,
+Bundle-ClassPath: target/lib.imported/junit-contrib-easymock-0.0.1-SNAPSHOT.jar,
  target/lib.imported/junit-contrib-emf-0.0.1-SNAPSHOT.jar,
  target/lib.imported/junit-contrib-guice-0.0.1-SNAPSHOT.jar,
+ target/lib.imported/junit-contrib-rules-0.0.1-SNAPSHOT.jar,
  .
 Export-Package: org.junit.contrib.easymock,
  org.junit.contrib.emf,
