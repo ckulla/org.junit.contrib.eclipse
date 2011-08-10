@@ -5,7 +5,9 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ PluginTest.class })
+@SuiteClasses({
+	WorkbenchUtilTest.class,
+	WorkspaceUtilTest.class })
 public class AllPluginTests {
 
 }

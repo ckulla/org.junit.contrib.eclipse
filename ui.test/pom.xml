@@ -20,7 +20,7 @@
 					<testSuite>org.junit.contrib.eclipse.ui.test</testSuite>
 					<testClass>org.junit.contrib.eclipse.ui.AllPluginTests</testClass>
 					<useUIHarness>true</useUIHarness>
-					<useUIThread>false</useUIThread>
+					<useUIThread>true</useUIThread>
 					<product>org.eclipse.sdk.ide</product>
 					<argLine>${ui.test.vmargs}</argLine>
 					<application>org.eclipse.ui.ide.workbench</application>

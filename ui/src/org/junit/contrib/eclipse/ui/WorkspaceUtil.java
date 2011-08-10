@@ -42,7 +42,7 @@ public class WorkspaceUtil implements MethodRule {
 	}
 
 	public IProject createProject(String name) throws CoreException {
-		IProject project = root ().getProject (name);
+		IProject project = getRoot ().getProject (name);
 		return createProject (project);
 	}
 
@@ -92,7 +92,7 @@ public class WorkspaceUtil implements MethodRule {
 	}
 
 	public void setReference(final IProject from, final IProject to) throws CoreException {
-		workspace ().run (new IWorkspaceRunnable () {
+		getWorkspace ().run (new IWorkspaceRunnable () {
 
 			public void run(IProgressMonitor monitor) throws CoreException {
 				IProjectDescription projectDescription = from.getDescription ();
@@ -106,8 +106,12 @@ public class WorkspaceUtil implements MethodRule {
 		}, monitor ());
 	}
 
+	public IProject getProject(String name) {
+		return getRoot ().getProject (name);
+	}
+
 	public void removeReference(final IProject from, final IProject to) throws CoreException, InterruptedException {
-		workspace ().run (new IWorkspaceRunnable () {
+		getWorkspace ().run (new IWorkspaceRunnable () {
 
 			public void run(IProgressMonitor monitor) throws CoreException {
 				IProjectDescription projectDescription = from.getDescription ();
@@ -132,8 +136,8 @@ public class WorkspaceUtil implements MethodRule {
 	}
 
 	public IFile createFile(IPath wsRelativePath, final String s) throws CoreException {
-		final IFile file = root ().getFile (wsRelativePath);
-		workspace ().run (new IWorkspaceRunnable () {
+		final IFile file = getRoot ().getFile (wsRelativePath);
+		getWorkspace ().run (new IWorkspaceRunnable () {
 
 			public void run(IProgressMonitor monitor) throws CoreException {
 				create (file.getParent ());
@@ -145,11 +149,11 @@ public class WorkspaceUtil implements MethodRule {
 	}
 
 	public IResource file(String path) {
-		return root ().findMember (new Path (path));
+		return getRoot ().findMember (new Path (path));
 	}
 
 	private void create(final IContainer container) throws CoreException {
-		workspace ().run (new IWorkspaceRunnable () {
+		getWorkspace ().run (new IWorkspaceRunnable () {
 
 			public void run(IProgressMonitor monitor) throws CoreException {
 				if (!container.exists ()) {
@@ -165,12 +169,12 @@ public class WorkspaceUtil implements MethodRule {
 		}, monitor ());
 	}
 
-	public IWorkspace workspace() {
+	public IWorkspace getWorkspace() {
 		return ResourcesPlugin.getWorkspace ();
 	}
 
-	public IWorkspaceRoot root() {
-		return workspace ().getRoot ();
+	public IWorkspaceRoot getRoot() {
+		return getWorkspace ().getRoot ();
 	}
 
 	protected IProgressMonitor monitor() {
@@ -178,7 +182,7 @@ public class WorkspaceUtil implements MethodRule {
 	}
 
 	protected void cleanWorkspace() throws CoreException {
-		IProject[] projects = root ().getProjects ();
+		IProject[] projects = getRoot ().getProjects ();
 		for (IProject iProject : projects) {
 			if (iProject.exists ()) {
 				iProject.delete (true, true, monitor ());

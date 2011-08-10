@@ -6,6 +6,7 @@ import org.eclipse.ui.IViewReference;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.junit.rules.MethodRule;
 import org.junit.runners.model.FrameworkMethod;
@@ -22,11 +23,15 @@ public class WorkbenchUtil implements MethodRule {
 				try {
 					base.evaluate ();
 				} finally {
-					closeAllEditors ();
-					closeAllViews ();
+					tearDown ();
 				}
 			}
 		};
+	}
+
+	void tearDown() {
+		closeAllEditors ();
+		closeAllViews ();
 	}
 
 	public IWorkbenchPage getActivePage() {
@@ -36,8 +41,9 @@ public class WorkbenchUtil implements MethodRule {
 	}
 
 	public IWorkbenchWindow getWorkbenchWindow() {
-		if (getWorkbench () != null)
+		if (getWorkbench () != null) {
 			return getWorkbench ().getActiveWorkbenchWindow ();
+		}
 		return null;
 	}
 
@@ -45,12 +51,16 @@ public class WorkbenchUtil implements MethodRule {
 		return PlatformUI.getWorkbench ();
 	}
 
-	public IViewPart openView(String viewId) throws Exception {
-		IViewPart viewPart = PlatformUI.getWorkbench ().getActiveWorkbenchWindow ().getActivePage ().showView (viewId);
-		if (viewPart == null) {
-			org.junit.Assert.fail ("Could not open a view of id: " + viewId);
+	public IViewPart openView(String viewId) {
+		try {
+			IViewPart viewPart = PlatformUI.getWorkbench ().getActiveWorkbenchWindow ().getActivePage ().showView (viewId);
+			if (viewPart == null) {
+				org.junit.Assert.fail ("Could not open a view of id: " + viewId);
+			}
+			return viewPart;
+		} catch (PartInitException e) {
+			throw new RuntimeException (e);
 		}
-		return viewPart;
 	}
 
 	public void closeAllEditors() {
@@ -58,7 +68,7 @@ public class WorkbenchUtil implements MethodRule {
 			getActivePage ().closeAllEditors (false);
 	}
 
-	public void closeAllViews() throws Exception {
+	public void closeAllViews() {
 		if (getActivePage () != null) {
 			IViewReference[] viewRefs = getActivePage ().getViewReferences ();
 			for (IViewReference viewRef : viewRefs) {
@@ -67,9 +77,9 @@ public class WorkbenchUtil implements MethodRule {
 		}
 	}
 
-	public void closeWelcomePage() throws InterruptedException {
-		if (PlatformUI.getWorkbench ().getIntroManager ().getIntro () != null) {
-			PlatformUI.getWorkbench ().getIntroManager ().closeIntro (getWorkbench ().getIntroManager ().getIntro ());
+	public void closeWelcomePage() {
+		if (getWorkbench ().getIntroManager ().getIntro () != null) {
+			getWorkbench ().getIntroManager ().closeIntro (getWorkbench ().getIntroManager ().getIntro ());
 		}
 	}
 

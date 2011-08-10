@@ -1,7 +1,7 @@
 package org.junit.contrib.eclipse.swtbot;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static org.junit.contrib.eclipse.swtbot.FileMatcher.exists;
 
 import java.io.File;
@@ -29,6 +29,6 @@ public class ScreenshotTest {
 						exists ());
 			return;
 		}
-		assertTrue (false);
+		fail ("An exception should have been thrown");
 	}
 }
