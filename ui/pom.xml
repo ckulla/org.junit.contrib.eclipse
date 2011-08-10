@@ -9,6 +9,6 @@
 	<groupId>org.junit.contrib.eclipse</groupId>
 	<artifactId>junit-contrib-eclipse-ui</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>JUnit Extension for Eclipse User Interface</name>
+	<name>JUnit Extension for Eclipse - User Interface</name>
 	<packaging>eclipse-plugin</packaging>
 </project>
