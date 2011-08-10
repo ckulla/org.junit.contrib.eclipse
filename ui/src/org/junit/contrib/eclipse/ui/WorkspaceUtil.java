@@ -1,5 +1,7 @@
 package org.junit.contrib.eclipse.ui;
 
+import static org.junit.Assert.fail;
+
 import java.io.ByteArrayInputStream;
 
 import org.eclipse.core.resources.IContainer;
@@ -170,11 +172,18 @@ public class WorkspaceUtil implements MethodRule {
 	}
 
 	public IWorkspace getWorkspace() {
-		return ResourcesPlugin.getWorkspace ();
+		if (ResourcesPlugin.getWorkspace () != null) {
+			return ResourcesPlugin.getWorkspace ();
+		}
+		fail ("Can't get workspace");
+		return null;
 	}
 
 	public IWorkspaceRoot getRoot() {
-		return getWorkspace ().getRoot ();
+		if (getWorkspace ().getRoot () != null)
+			return getWorkspace ().getRoot ();
+		fail ("Can't get workspace root");
+		return null;
 	}
 
 	protected IProgressMonitor monitor() {

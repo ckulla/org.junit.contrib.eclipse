@@ -1,5 +1,7 @@
 package org.junit.contrib.eclipse.ui;
 
+import static org.junit.Assert.fail;
+
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IViewReference;
@@ -35,20 +37,24 @@ public class WorkbenchUtil implements MethodRule {
 	}
 
 	public IWorkbenchPage getActivePage() {
-		if (getWorkbenchWindow () != null)
+		if (getWorkbenchWindow ().getActivePage () != null)
 			return getWorkbenchWindow ().getActivePage ();
+		fail ("Can't get active page");
 		return null;
 	}
 
 	public IWorkbenchWindow getWorkbenchWindow() {
-		if (getWorkbench () != null) {
+		if (getWorkbench ().getActiveWorkbenchWindow () != null)
 			return getWorkbench ().getActiveWorkbenchWindow ();
-		}
+		fail ("Can't get active workbench window");
 		return null;
 	}
 
 	public IWorkbench getWorkbench() {
-		return PlatformUI.getWorkbench ();
+		if (PlatformUI.getWorkbench () != null)
+			return PlatformUI.getWorkbench ();
+		fail ("Can't get workbench");
+		return null;
 	}
 
 	public IViewPart openView(String viewId) {
